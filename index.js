@@ -3,10 +3,12 @@ const inquirer = require("inquirer");
 const jest = require("jest");
 // need to add an html file
 
-const employee = require("./lib/Employee");
+// const employee = require("./lib/Employee");
 const manager = require("./lib/Manager");
 const engineer = require("./lib/Engineer");
 const intern = require("./lib/Intern");
+
+const employee = new Employee
 
 ///////Inquirer////////////////
 
@@ -34,6 +36,12 @@ inquirer
       type: "input",
       message: "Please enter employees office number:",
       name: "office",
+    },
+
+    {
+      type: "input",
+      message: "Please enter your gitHub username:",
+      name: "github",
     },
 
     {
@@ -136,3 +144,10 @@ const generateHTML = function (writeFile) {
 
   return htmlDoc;
 };
+
+
+/////// need to add function for each role////////////
+
+function managerRole() {
+
+}
