@@ -95,7 +95,7 @@ To contribute you can make a pull request and check for errors and bugs and impr
 ## **🚧Tests**
 
 ```md
-Write tests for your application and provide examples on how to run them here.
+[Video Demo of Application](https://watch.screencastify.com/v/KpHNaNaUoaX1ykHWfTPd)
 ```
 
 ---
