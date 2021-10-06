@@ -155,7 +155,7 @@ const interInfo = () => {
       <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#127891;Intern</span></p>
       <div style="border-radius:10px; padding: 5px;">
           <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
-          <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
+          <p type="text" style="width: 200px; padding-left: 5px;">Email: <a href="mailto:${answers.email}"> ${answers.email}</a></p>   
           <p type="text" style="width: 200px; padding-left: 5px;">School Name: ${answers.school}</p>     
       </div>
   </div>`;
