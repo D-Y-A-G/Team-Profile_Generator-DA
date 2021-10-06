@@ -76,7 +76,7 @@ Apache 2.0, BSD 3, GNU v3 , MIT
 ## **📑Features**
 
 ```md
-Quick and easy application to generate a team profile od employees by just tyoing in info requested by questions.
+Quick and easy application to generate a team profile od employees by just typing in info requested by prompt questions.
 ```
 
 ---
