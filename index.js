@@ -67,7 +67,7 @@ const managerInfo = () => {
         <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#9749;Manager</span></p>
         <div style="border-radius:10px; padding: 5px;">
             <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
-            <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
+            <p type="text" style="width: 200px; padding-left: 5px;">Email: <a href="mailto:${answers.email}"> ${answers.email}</a></p>   
             <p type="text" style="width: 200px; padding-left: 5px;">Office Number: ${answers.office}</p>     
         </div>
     </div>`;
@@ -111,8 +111,8 @@ const engineerInfo = () => {
       <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#128083;Engineer</span></p>
       <div style="border-radius:10px; padding: 5px;">
           <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
-          <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
-          <p type="text" style="width: 200px; padding-left: 5px;"><a href="https://github.com/${answers.github}"> GitHub: ${answers.github}</a></p>     
+          <p type="text" style="width: 200px; padding-left: 5px;">Email: <a href="mailto:${answers.email}"> ${answers.email}</a></p>   
+          <p type="text" style="width: 200px; padding-left: 5px;"> GitHub: <a href="https://github.com/${answers.github}">${answers.github}</a></p>     
       </div>
   </div>`;
       addEmployee();
@@ -238,7 +238,9 @@ const generateHTML = function () {
         </html> `;
 
   fs.writeFile("index.html", htmlDoc, (err) => {
-    err ? console.error(err) : console.log("Succesfully wrote HTML doc");
+    err
+      ? console.error(err)
+      : console.log("HTML document Successfully created!");
   });
 };
 
