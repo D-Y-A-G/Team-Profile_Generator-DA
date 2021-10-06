@@ -4,12 +4,14 @@ const jest = require("jest");
 // need to add an html file
 
 // const employee = require("./lib/Employee");
-const manager = require("./lib/Manager");
-const engineer = require("./lib/Engineer");
-const intern = require("./lib/Intern");
-const employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Employee = require("./lib/Employee");
 
-// const employee = new Employee
+let managerData = ``;
+let engineerData = ``;
+let internData = ``;
 
 ///////Inquirer////////////////
 ///// need to start with manager//////////
@@ -59,8 +61,10 @@ const managerInfo = () => {
     // );
 
     .then((answers) => {
-      managerData = `<div style="float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
-        <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#9749;${answers.role}</span></p>
+      managerData =
+        managerData +
+        `<div style="font-weight: bolder; float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
+        <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#9749;Manager</span></p>
         <div style="border-radius:10px; padding: 5px;">
             <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
             <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
@@ -101,12 +105,14 @@ const engineerInfo = () => {
       },
     ])
     .then((answers) => {
-      engineerData = `<div style="float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
-      <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#9749;${answers.role}</span></p>
+      engineerData =
+        engineerData +
+        `<div style="font-weight: bolder; float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
+      <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#128083;Engineer</span></p>
       <div style="border-radius:10px; padding: 5px;">
           <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
           <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
-          <p type="text" style="width: 200px; padding-left: 5px;">GitHub: ${answers.github}</p>     
+          <p type="text" style="width: 200px; padding-left: 5px;"><a href="https://github.com/${answers.github}"> GitHub: ${answers.github}</a></p>     
       </div>
   </div>`;
       addEmployee();
@@ -143,8 +149,10 @@ const interInfo = () => {
       },
     ])
     .then((answers) => {
-      internData = `<div style="float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
-      <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#9749;${answers.role}</span></p>
+      internData =
+        internData +
+        `<div style="font-weight: bolder; float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
+      <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius: 10px 10px 0px 0px;" >${answers.name}</br> <span>&#127891;Intern</span></p>
       <div style="border-radius:10px; padding: 5px;">
           <p type="text" style="width: 200px; padding-left: 5px;">ID: ${answers.id}</p>
           <p type="text" style="width: 200px; padding-left: 5px;">Email: ${answers.email}</p>   
@@ -155,7 +163,7 @@ const interInfo = () => {
     });
 };
 
-/////////////////Adding a new employee//////////////
+/////////////////Adding a new employee////////////// need to fix undefined for
 
 function addEmployee() {
   inquirer
@@ -215,32 +223,15 @@ const generateHTML = function () {
                       ${managerData}
           
                       ${engineerData}
-                      
-                      ${internData}
-           
+
                 </div>
-          
+
                 <div style="display:inline-block; position: inherit; margin-left: 400px;">
-                      <div style="float:left; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
-                          <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius:10px 10px 0px 0px;" >Name</br> <span>&#128083;Engineer</span></p>
-                          <div style="border-radius:10px; padding: 5px;">
-                              <p type="text" style="width: 200px; padding-left: 5px;">ID:</p>
-                              <p type="text" style="width: 200px; padding-left: 5px;">Email:</p>   
-                              <p type="text" style="width: 200px; padding-left: 5px;">Office Number:</p>     
-                          </div>
-                      </div>
-          
-                      <div style="float:right; width: 300px; background-color: white; border-radius: 10px; box-shadow: 6px 6px gray; margin: 10px 10px 10px 10px;">
-                          <p style="width:300px; position:relative; color:white; font-size:2rem; background-color: tomato; align-items: center; text-align: center; padding-bottom: 15px; padding-top: 10px; text-shadow: 1px 1px black; margin: 0%; border-radius:10px 10px 0px 0px;"  >Name</br> <span>&#127891;Intern</span></p>
-                          <div style="border-radius:10px; padding: 5px;">
-                              <p type="text" style="width: 200px; padding-left: 5px;">ID:</p>
-                              <p type="text" style="width: 200px; padding-left: 5px;">Email:</p>   
-                              <p type="text" style="width: 200px; padding-left: 5px;">Office Number:</p>   
-                          </div>
-                      </div>
-          
-                  </div>
-          
+                     
+                      ${internData}
+
+                </div>
+    
               </main>
         
         </body>
